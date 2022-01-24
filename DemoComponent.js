@@ -9,7 +9,7 @@ const DemoComponent = (props) => {
     return (
         <View>
             <Text>{props.title}</Text>
-            <View>
+            <View>  
                 <Text>Count: {count}</Text>
             </View>
             <View>
@@ -18,7 +18,7 @@ const DemoComponent = (props) => {
             <TouchableOpacity onPress={()=>setCount(count-1)} >
                 <Text>Minus</Text>
             </TouchableOpacity>
-            <Button onPress={()=>setCount(0)} title="Click Me" />
+            <Button onPress={()=>setCount(0)} title="Click Me (reset)" />
             <Pressable 
                 onPressIn={()=>setTest("on press in")} 
                 onPressOut={()=>setTest("on press out")} 
