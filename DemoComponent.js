@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, Button, Pressable } from "react-native";
+import { View, TouchableOpacity, Button, Pressable, StyleSheet } from "react-native";
+import AppText from "./AppText";
 
 const DemoComponent = (props) => {
 
@@ -7,16 +8,16 @@ const DemoComponent = (props) => {
     const [test, setTest] = useState("press");
 
     return (
-        <View>
-            <Text>{props.title}</Text>
+        <View style={styles.container} >
+            <AppText large style={{color: "red"}} >{props.title}</AppText>
             <View>  
-                <Text>Count: {count}</Text>
+                <AppText>Count: {count}</AppText>
             </View>
             <View>
-                <Text onPress={()=>setCount(count+1)} >Add</Text>
+                <AppText small onPress={()=>setCount(count+1)} >Add</AppText>
             </View>
             <TouchableOpacity onPress={()=>setCount(count-1)} >
-                <Text>Minus</Text>
+                <AppText small >Minus</AppText>
             </TouchableOpacity>
             <Button onPress={()=>setCount(0)} title="Click Me (reset)" />
             <Pressable 
@@ -25,10 +26,23 @@ const DemoComponent = (props) => {
                 onPress={()=>setTest("on press")} 
                 onLongPress={()=>setTest("on long press")} 
                 >
-                <Text>Pressable: {test}</Text>
+                <AppText>Pressable: {test}</AppText>
             </Pressable>
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        margin: 20,
+        padding: 10,
+        borderWidth: 2,
+        borderColor: "red",
+    },
+    centerText: {
+        textAlign: "center",
+
+    }
+})
 
 export default DemoComponent;
